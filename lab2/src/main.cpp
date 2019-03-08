@@ -112,6 +112,9 @@ void createGrid() {
     Eigen::SelfAdjointEigenSolver<Eigen::MatrixXd> eig(cov);
     Eigen::MatrixXd eig_vectors = eig.eigenvectors();
     Eigen::Matrix3d eig_dim = eig_vectors.rightCols(3);
+    if (eig_dim.col(0).cross(eig_dim.col(1)).dot(eig_dim.col(2)) < 0) {
+        eig_dim.col(2) *= -1;
+    }
     Eigen::MatrixXd pca_points = P * eig_dim;
     Eigen::RowVector3d pca_bb_min = pca_points.colwise().minCoeff();
     Eigen::RowVector3d pca_bb_max = pca_points.colwise().maxCoeff();
@@ -276,6 +279,9 @@ void evaluateImplicitFunc() {
         }
         // Finally, solve the result fx
         double fx = bx * ax;
+        if (fx != fx) {
+            fx = std::numeric_limits<double>::max();
+        }
         grid_values(i) = fx;
         if (i > 0 && i % 1000 == 0) {
             cout << "  [Progress Report] Calculating f(x) complete for grid point " << i << endl;
