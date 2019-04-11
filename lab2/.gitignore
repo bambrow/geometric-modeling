@@ -1,0 +1,16 @@
+*.a
+*.app
+*.dll
+*.dylib
+*.exe
+*.o
+*.out
+*.slo
+*.so
+.DS_Store
+.idea/*
+.vscode/*
+build/
+external/
+cmake-build-debug/
+cmake-build-release/
