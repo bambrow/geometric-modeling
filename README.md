@@ -1,6 +1,6 @@
 # Geometric Modeling Projects
 
-This repository collects all the projects of the Geometric Modeling class. There are five projects in total (this repository may not include all projects):
+This repository collects the projects of the Geometric Modeling class. There are five projects in total, and this repository only includes Lab 2 and Lab 4:
 1. Lab 1 (optional) - Hello World
 2. Lab 2 - Implicit Surface Reconstruction
 3. Lab 3 (optional) - DDG
